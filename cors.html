@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- cors example -->
+<button id="cors_simple" onclick="simple_request()"> Simple CORS </button>
+<button id="cors_simple_error" onclick="simple_request_error()"> Simple CORS Error </button>
+<button id="cors_non_simple" onclick="non_simple_request()"> Non-Simple CORS </button>
+<button id="cors_non_simple_error" onclick="non_simple_request_error()"> Non-Simple CORS Error </button>
+
+
+
+<style>
+    button {
+        background-color: #5bc8e8;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        margin: 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+    }
+</style>
+
+<script>
+
+    function simple_request() {
+        fetch("http://localhost:7777/cors/ping", {
+                method: 'GET',
+            }
+        ).then(response => {
+            if (response.ok) {
+                console.log("simple request successful")
+                return
+            }
+            throw new Error('Network response was not ok.');
+        }).catch(err => console.log(err));
+    }
+
+    function simple_request_error() {
+        fetch("http://localhost:7777/ping", {
+                method: 'GET',
+            }
+        ).then(response => {
+            if (response.ok) {
+                console.log("simple request successful")
+                return
+            }
+            throw new Error('Network response was not ok.');
+        }).catch(err => console.log(err));
+    }
+
+    function non_simple_request() {
+        fetch("http://localhost:7777/cors/ping", {
+                method: 'POST',
+                // header
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // json body
+                body: JSON.stringify({
+                    "name": "John Doe",
+                    "age": 30
+                })
+            }
+        ).then(response => {
+            if (response.ok) {
+                response.json().then(json => console.log(json))
+                return
+            }
+            throw new Error('Network response was not ok.');
+        }).catch(err => console.log(err));
+    }
+
+    function non_simple_request_error() {
+        fetch("http://localhost:7777/ping", {
+                method: 'POST',
+                // header
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                // json body
+                body: JSON.stringify({
+                    "name": "John Doe",
+                    "age": 30
+                })
+            }
+        ).then(response => {
+            if (response.ok) {
+                response.json().then(json => console.log(json))
+                return
+            }
+            throw new Error('Network response was not ok.');
+        }).catch(err => console.log(err));
+    }
+
+
+
+</script>
+
+</html>
+
