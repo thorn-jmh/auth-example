@@ -13,6 +13,7 @@ This is a simple demo to help people write better login&auth system. It illustra
 
 
 Some trick to see what happened in it:
+**[WARN:pictures out of date]**
 
 1. use developer tools of your browser to track request
 
@@ -32,21 +33,21 @@ Some trick to see what happened in it:
 
 - [x] cookie
 
-打开`cookie.html`，启动后端 server。
+打开`sample.html`，启动后端 server。
 
 点击各个按钮，在控制台中查看输出，以及每个请求的具体信息。
 
-后端负责 cookie 的接口在`cookie.go`文件中，你可以按自己的想法更改设置并尝试结果。
+后端负责 cookie 的接口在`server/cookie.go`文件中，你可以按自己的想法更改设置并尝试结果。
 
 
 
 - [x] cors
 
-打开`cors.html`，启动后端 server。
+打开`sample.html`，启动后端 server。
 
 点击各个按钮，在控制台中查看输出，并查看后端 server 的 log（浏览器似乎不会显示 OPTIONS 请求，只能在后端这边查看）。
 
-后端负责 cors 的接口在`cors.go`文件中，其中的`CORSMidware`实现了 CORS 相关功能，你可以按自己的想法更改它们后尝试结果。
+后端负责 cors 的中间件在`server/cors.go`文件中，其中的`CORSMidware`实现了 CORS 相关功能，你可以按自己的想法更改它们后尝试结果。
 
 前面的所有 cookie 接口同样使用了这个中间件，你可以在更改后再去尝试浏览器如何在 CORS 规则下处理 cookie。
 

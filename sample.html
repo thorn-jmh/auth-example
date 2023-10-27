@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="./sample.js"></script>
+    <link rel="stylesheet" href="./sample.css" />
+  </head>
+
+  <body>
+
+    <br>
+      <button class="ping" id="cors_simple" onclick="ping()">Simple CORS</button>
+      <button class="ping" id="cors_non_simple" onclick="ping_post()">
+        Non-Simple CORS
+      </button>
+    </br>
+
+    <!-- cookie example -->
+    <br>
+      <button class="cookie" id="cookie_simple" onclick="simple_request()">
+        Simple Cookie
+      </button>
+      <button class="cookie" id="cookie_delete" onclick="delete_cookie()">
+        Delete Cookie
+      </button>
+      <button class="cookie" id="cookie_httponly" onclick="with_httponly()">
+        HttpOnly Cookie
+      </button>
+      <button class="cookie" id="cookie_secure" onclick="with_secure()">
+        Secure Cookie
+      </button>
+    </br>
+
+    <!-- login example -->
+    <!-- input an username -->
+    <br>
+        <input type="text" id="username" placeholder="qwq" />
+        <button class="login" id="login" onclick="login()">Login</button>
+    </br>
+  </body>
+</html>
